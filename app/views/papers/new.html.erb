@@ -1,10 +1,14 @@
 <h1> Add a new paper </h1>
 <%= form_for(@paper) do |f| %>
-<%= f.label :title %>
-<%= f.text_field :title %>
-<br>
-<%= f.label :editor %>
-<%= f.text_field :editor %>
-<br>
-<%= f.submit %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br>
+  <%= f.label :editor %>
+  <%= f.text_field :editor %>
+  <br>
+  <%= f.fields_for :subscription_plans do |plan| %>
+    <%= render :partial => 'subscription_plans/plans_form', :locals => { :f => plan } %>
+    <br >
+  <% end %>
+  <%= f.submit %>
 <% end %>

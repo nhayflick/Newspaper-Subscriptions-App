@@ -1,2 +1,15 @@
 <h1><%= @paper.title %></h1>
 <p> Editor: <%= @paper.editor %> </p>
+<% unless @paper.subscription_plans.empty? %>
+  Available Subscription Plans:
+  <br>
+  <% @paper.subscription_plans.each do |plan| %>
+    <%= plan.price %>
+    <% if plan.weekly? %>
+      Weekly
+    <% else %>
+      Daily
+    <% end %>
+  <br>
+  <% end %>
+<% end %>

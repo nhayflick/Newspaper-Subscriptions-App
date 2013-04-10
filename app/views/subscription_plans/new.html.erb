@@ -1,0 +1,5 @@
+<h1> Add Subscription </h1>
+<%= form_for(@subscription_plan) do |f| %>
+  <%= render :partial => 'plans_form', :locals => {:f => f } %>
+  <%= f.submit %>
+<% end %>

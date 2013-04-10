@@ -28,6 +28,4 @@ ActiveRecord::Schema.define(:version => 20130410163442) do
     t.datetime "updated_at", :null => false
   end
 
-  add_index "subscription_plans", ["paper_id"], :name => "index_subscription_plans_on_paper_id", :unique => true
-
 end
