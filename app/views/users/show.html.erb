@@ -1,0 +1,10 @@
+<%= @user.name %>
+<% @user.subscriptions.each do |sub| %>
+  <ul><li><%= sub.subscription_plan.paper.title %></li>
+  <li><%= sub.subscription_plan.price %></li>
+  <li><% if sub.subscription_plan.weekly? %>
+    Weekly
+  <% else %>
+    Daily
+  <% end %></li></ul>
+<% end %>

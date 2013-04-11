@@ -1,0 +1,16 @@
+<h1> Get a newspaper subscription </h1>
+<%= form_for @user do |f| %>
+  <%= f.text_field :name %>
+  <% @plans.each do |plan| %>
+    <ul>
+    <li> <%= plan.paper.title %> </li>
+    <li> <%= plan.price %></li>
+    <li><% if plan.weekly? %>
+      Weekly
+    <% else %>
+      Daily
+    <% end %></li>
+    <li> Subscribe:<%= check_box_tag 'user[subscription_plan_ids][]', plan.id %> </li></ul>
+  <% end %>
+  <%= f.submit %>
+<% end %>
